@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { resolveAssetUrl } from '../layoutHelper.ts'
+import { computed } from "vue";
+
 const props = defineProps({
     image: {
         type: String,
@@ -12,7 +15,10 @@ const props = defineProps({
         type: String,
         default: ''
     }
-})
+});
+
+const imageSrc = computed(() => resolveAssetUrl(props.image));
+
 </script>
 <template>
     <div class="slidev-layout bio">
@@ -26,7 +32,7 @@ const props = defineProps({
                 <slot />
             </div>
         </div>
-        <img class="bio__image" :src="image" :alt="name" v-motion :initial="{ x: 400 }" :enter="{ x: 0, transition: {
+        <img class="bio__image" :src="imageSrc" :alt="name" v-motion :initial="{ x: 400 }" :enter="{ x: 0, transition: {
       type: 'spring',
       stiffness: 2500,
       damping: 2500,

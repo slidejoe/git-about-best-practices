@@ -1046,7 +1046,7 @@ layout: two-cols
 <!-- Maintaining your "true history" certainly has its merits: it can be useful for learning and code reviews. There's also the risk you might mess up your history if you never tamper with it! However, the way I see it is that this shouldn't at the cost of the readability of your repo. I prefer to maintain what I like to call my "*feature* history" where the order of our feature development is true, even if we're tweaking the timelines a little of when each feature was developed relative to each other. I don't advocate for complete rewriting, just a quick tidy up. -->
 ---
 layout: image-left
-image: media/shocked-rich-cartoon.png
+image: /media/shocked-rich-cartoon.png
 ---
 
 # <solar-shield-warning-bold-duotone /><br />Wait did you say **"risk"?!**
