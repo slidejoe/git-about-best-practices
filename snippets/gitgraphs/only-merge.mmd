@@ -1,0 +1,22 @@
+gitGraph BT:
+    commit id: "Initial commit"
+    branch feature/git-talk
+    commit id: "Write talk"
+    branch feature/git-article
+    commit id: "Fix typos"
+    checkout feature/git-talk
+    merge feature/git-article
+    commit id: "Create presentation"
+    checkout main
+    branch feature/another-talk
+    commit id: "Write another talk"
+    checkout main
+    merge feature/another-talk
+    checkout feature/git-article
+    commit id: "Rewrite talk as blog post"
+    checkout main
+    merge feature/git-article
+    checkout feature/git-talk
+    commit id: "Reorder slides"
+    checkout main
+    merge feature/git-talk

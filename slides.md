@@ -97,12 +97,21 @@ class: text-center
 # Why am I being such a *git* about best practices?
 
 ---
-
-## Joe Glombek
-
+layout: bio
+image: /media/Unicorn-transparent.png
+tagline: Senior Developer at Bump Digital
 ---
 
-## What is **git**?
+- <logos-mastodon-icon /> [@joe@umbraco&#8239;community.social](https://umbracocommunity.social/joe)
+- <logos-bluesky />  [@joe.gl](https://bsky.app/profile/joe.gl)
+- <solar-global-bold-duotone /> https://joe.gl/ombek
+
+
+---
+layout: intro
+---
+
+# What is **git**?
 <!--
 Let's start really simple: what is git? Git is the most popular Source Control Management (SCM) system. 
 -->
@@ -138,8 +147,10 @@ But I can be a bit of a git about it: I'm really fussy about how people use git 
 -->
 
 ---
+layout: intro
+---
 
-# **5** simple tips to improve your git usage
+# [5]{.number} simple tips to improve **git** usage
 
 <!-- Today we'll take a look at 5 simple tips which will, with any luck, improve your git practice. -->
 
@@ -159,7 +170,8 @@ This isn't one of the 5, but there are seriously some organisations out there no
 
 ![Tweet by @LovelaceCoding: Why did the developer not want to use git? They were scared of committing to it](/media/scared-of-committing.jpg)
 
-🦋 @louella.dev
+<cite class="text-center"><logos-bluesky /> @louella.dev</cite>
+
 <!-- Why did the developer not want to use git? They were scared of committing to it! (Ba-dum tis!) For all the reasons I gave previously, version control is essential for modern day software development. -->
 
 ---
@@ -172,6 +184,8 @@ layout: icons
   <li v-mark="{ at: 1, type: 'crossed-off', color: 'var(--color-mandarin)', strokeWidth: 10  }"><logos-visual-studio /> Team Foundation Version Control</li>
   <li v-mark="{ at: 1, type: 'circle', color: 'var(--color-bud-green)', strokeWidth: 10, padding: 20 }"><logos-git-icon /> Git</li>
 </ul>
+
+<!-- Mercurial (hg), Team Foundation Version Control (TFVC) and Subversion (SVN) are all examples of version control software but Git has really taken over in the software world and is the industry standard - I'd recommend it for that on its own: there's no point teaching your team a version control system which is (or may become) redundant. -->
 
 ---
 layout: intro
@@ -203,6 +217,8 @@ layout: two-cols
 
 ## Imagine being in Dennis' situation and...
 
+<v-clicks>
+
 - you've discovered a bug introduced in the latest version?
   Where do you even start to look for the solution?
 - You see something odd in the codebase, there's no comment so you use a blame/annotate tool to see who changed it and why... but Andy is on holiday and his commit message says “test”
@@ -210,6 +226,8 @@ layout: two-cols
   You could revert it back to how you like it but maybe it was changed for a reason?
   You fire up the blame tool again, “Fixes date formatting issue in Chrome” - better leave it as it is!
   Saved by a good commit message!
+
+</v-clicks>
 
 ::right::
 
@@ -250,6 +268,21 @@ gitGraph BT:
     merge develop
 ```
 
+<!--
+Imagine being in Dennis' situation and...
+
+
+
+- [Click]you've discovered a bug introduced in the latest version?
+  Where do you even start to look for the solution?
+- [Click]You see something odd in the codebase, there's no comment so you use a blame/annotate tool to see who changed it and why... but Andy is on holiday and his commit message says “test”
+- [Click]Some piece of code has changed since you last saw it - why?
+  You could revert it back to how you like it but maybe it was changed for a reason?
+  You fire up the blame tool again, “Fixes date formatting issue in Chrome” - better leave it as it is!
+  Saved by a good commit message!
+
+  -->
+
 ---
 layout: icons-header
 cols: 3
@@ -262,6 +295,8 @@ cols: 3
 - <solar-adhesive-plaster-bold-duotone /> Fixes...
 - <solar-undo-left-round-square-bold-duotone /> Reverts...
 - <solar-plug-circle-bold-duotone /> Integrates...
+
+<!-- Some people will tell you that good commit messages should be written as if answering the question "what does this commit do?" and that's good advice! Starting your commit message with a verb like "Fixes ...", "Reverts ..." or "Integrates ..." is a good practice too. -->
 
 ---
 layout: icons-header
@@ -335,6 +370,8 @@ layout: intro
 ---
 
 # [2]{.number} Push **Little and often**
+
+<!-- Tip number 2 is to commit and push little and often I've seen a lot of different tactics when it comes to how often people commit, but the most persuasive argument I've heard is for "little and often". Don't forget git acts as a backup of your work and progress. -->
 
 ---
 layout: icons
@@ -527,6 +564,8 @@ TODO: Force push screenshots
 git push --force
 ```
 
+<!-- Because we're rewriting history, you'll often get a scary warning when you try to push. (Or have to use the --force flag if using the command line) Really, though, this is nothing to worry about.  -->
+
 ---
 layout: two-cols
 ---
@@ -609,6 +648,8 @@ layout: intro
 
 # [4]{.number} Get with the **flow**
 
+<!-- Tip number 4 is to use a branching strategy. -->
+
 ---
 layout: icons-header
 cols: 4
@@ -685,31 +726,8 @@ Our final tip to keep these git repos tidy is to rebase AND merge.
 -->
 ---
 
-```mermaid {scale: 0.8}
-%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': false}} }%%
-gitGraph BT:
-    commit id: "Initial commit"
-    branch feature/git-talk
-    commit id: "Write talk"
-    branch feature/git-article
-    commit id: "Fix typos"
-    checkout feature/git-talk
-    merge feature/git-article
-    commit id: "Create presentation"
-    checkout main
-    branch feature/another-talk
-    commit id: "Write another talk"
-    checkout main
-    merge feature/another-talk
-    checkout feature/git-article
-    commit id: "Rewrite talk as blog post"
-    checkout main
-    merge feature/git-article
-    checkout feature/git-talk
-    commit id: "Reorder slides"
-    checkout main
-    merge feature/git-talk
-```
+
+<<< @/snippets/gitgraphs/only-merge.mmd mermaid {scale: 0.8}
 
 ---
 
@@ -725,31 +743,9 @@ layout: two-cols-header
 
 ::left::
 
-```mermaid {scale: 0.7}
-%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': false}} }%%
-gitGraph BT:
-    commit id: "Initial commit"
-    branch feature/git-talk
-    commit id: "Write talk"
-    branch feature/git-article
-    commit id: "Fix typos"
-    checkout feature/git-talk
-    merge feature/git-article
-    commit id: "Create presentation"
-    checkout main
-    branch feature/another-talk
-    commit id: "Write another talk"
-    checkout main
-    merge feature/another-talk
-    checkout feature/git-article
-    commit id: "Rewrite talk as blog post"
-    checkout main
-    merge feature/git-article
-    checkout feature/git-talk
-    commit id: "Reorder slides"
-    checkout main
-    merge feature/git-talk
-```
+<div class="view-transition-graph">
+<<< @/snippets/gitgraphs/only-merge.mmd mermaid {scale: 0.7}
+</div>
 
 ::right::
 
@@ -772,53 +768,12 @@ layout: two-cols-header
 ::left::
 
 <div class="view-transition-graph">
-```mermaid {scale: 0.7}
-gitGraph BT:
-    commit id: "Initial commit"
-    branch feature/git-talk
-    commit id: "Write talk"
-    branch feature/git-article
-    commit id: "Fix typos"
-    checkout feature/git-talk
-    merge feature/git-article
-    commit id: "Create presentation"
-    checkout main
-    branch feature/another-talk
-    commit id: "Write another talk"
-    checkout main
-    merge feature/another-talk
-    checkout feature/git-article
-    commit id: "Rewrite talk as blog post"
-    checkout main
-    merge feature/git-article
-    checkout feature/git-talk
-    commit id: "Reorder slides"
-    checkout main
-    merge feature/git-talk
-```
+<<< @/snippets/gitgraphs/only-merge.mmd mermaid {scale: 0.7}
 </div>
 
 ::right::
 
-```mermaid {scale: 0.7}
-gitGraph BT:
-    commit id: "Initial commit"
-    branch feature/another-talk
-    commit id: "Write another talk"
-    checkout main
-    merge feature/another-talk
-    branch feature/git-talk
-    commit id: "Write talk"
-    commit id: "Fix typos"
-    commit id: "Create presentation"
-    commit id: "Reorder slides"
-    checkout main
-    merge feature/git-talk
-    branch feature/git-article
-    commit id: "Rewrite talk as blog post"
-    checkout main
-    merge feature/git-article
-```
+<<< @/snippets/gitgraphs/rebase-and-merge.mmd mermaid {scale: 0.7}
 
 <!-- Which leaves us with "Rebase and merge". This option allows us to avoid losing data while keeping the tree clean and tidy so is, of course, my favourite. (If you're using Azure DevOps, you can set this method as the merge type too - they call it a ["semi-linear merge"](https://devblogs.microsoft.com/devops/pull-requests-with-rebase/#semi-linear-merge)).  -->
 
@@ -851,6 +806,8 @@ gitGraph BT:
 ```
 </div>
 
+<!-- But wait, what's a rebase? I've taken our messy commits and I'm going to time-travel to before we did the simple merge operations so we can walk through how we'd do this with rebase and merge. -->
+
 ---
 
 ```mermaid {scale: 0.65}
@@ -873,6 +830,8 @@ gitGraph BT:
     checkout feature/git-talk
     commit id: "Reorder slides"
 ```
+
+ <!-- I've taken our messy commits and I'm going to time-travel to before we did the simple merge operations so we can walk through how we'd do this with rebase and merge. We can actually leave the merge of the `another-talk` branch in place, since it's already cleanly merged into `main` with no intermediate commits to main, so it's just the other two branches we need to worry about. -->
 
 ---
 
@@ -899,6 +858,8 @@ gitGraph BT:
     branch feature/git-talk
     commit id: "Write talk "
 ```
+
+<!-- Now, I've created a new branch from the latest `main` and faded out our existing `git-talk` branch. If you've ever done a cherry-pick before to move a commit from one branch to another, a rebase is like an extreme version of that! When told to rebase, git will cherry-pick each commit in a branch in turn and add it to a new branch at the point requested (in this case, a later version of the same `main` branch). Here I've "cherry-picked" the "Write talk" commit and put it onto our new branch. -->
 
 ---
 
@@ -928,6 +889,8 @@ gitGraph BT:
     commit id: "Create presentation "
     commit id: "Reorder slides "
 ```
+
+<!-- Then we repeat that for all the other commits needed (including "fix typos" in that other branch), adding them in order and fixing any conflicts that may come about for each one. And that's actually the rebase out the way! We've "cherry picked" each commit and resolved any conflicts, but in a more automated way than actually doing loads of cherry-picks. -->
 
 ---
 
@@ -960,6 +923,8 @@ gitGraph BT:
     merge feature/git-talk
 ```
 
+<!-- Now it's time to merge `git-talk` into `main`. That old branch doesn't need to be there any more - it doesn't actually exist locally, so we can hide that. -->
+
 ---
 
 ```mermaid {scale: 0.65}
@@ -982,30 +947,16 @@ gitGraph BT:
     checkout main
     merge feature/git-talk
 ```
+
+ <!-- That old branch doesn't need to be there any more - it doesn't actually exist locally, so we can hide that. And then all we have to do is rebase and merge our final branch, `another-talk`. -->
 
 ---
 
 <div class="view-transition-graph">
-```mermaid {scale: 0.7}
-gitGraph BT:
-    commit id: "Initial commit"
-    branch feature/another-talk
-    commit id: "Write another talk"
-    checkout main
-    merge feature/another-talk
-    branch feature/git-talk
-    commit id: "Write talk"
-    commit id: "Fix typos"
-    commit id: "Create presentation"
-    commit id: "Reorder slides"
-    checkout main
-    merge feature/git-talk
-    branch feature/git-article
-    commit id: "Rewrite talk as blog post"
-    checkout main
-    merge feature/git-article
-```
+<<< @/snippets/gitgraphs/rebase-and-merge.mmd mermaid {scale: 0.65}
 </div>
+
+<!-- To give us this! Each feature makes a neat "D" shape with the `main` or `develop` branch, with no crossovers. -->
 
 ---
 layout: two-cols-header
@@ -1015,67 +966,122 @@ layout: two-cols-header
 
 ::left::
 
-```mermaid {scale: 0.7}
-gitGraph BT:
-    commit id: "Initial commit"
-    branch feature/git-talk
-    commit id: "Write talk"
-    branch feature/git-article
-    commit id: "Fix typos"
-    checkout feature/git-talk
-    merge feature/git-article
-    commit id: "Create presentation"
-    checkout main
-    branch feature/another-talk
-    commit id: "Write another talk"
-    checkout main
-    merge feature/another-talk
-    checkout feature/git-article
-    commit id: "Rewrite talk as blog post"
-    checkout main
-    merge feature/git-article
-    checkout feature/git-talk
-    commit id: "Reorder slides"
-    checkout main
-    merge feature/git-talk
-```
+<<< @/snippets/gitgraphs/only-merge.mmd mermaid {scale: 0.7}
 
 ::right::
 
 <div class="view-transition-graph">
-```mermaid {scale: 0.7}
-gitGraph BT:
-    commit id: "Initial commit"
-    branch feature/another-talk
-    commit id: "Write another talk"
-    checkout main
-    merge feature/another-talk
-    branch feature/git-talk
-    commit id: "Write talk"
-    commit id: "Fix typos"
-    commit id: "Create presentation"
-    commit id: "Reorder slides"
-    checkout main
-    merge feature/git-talk
-    branch feature/git-article
-    commit id: "Rewrite talk as blog post"
-    checkout main
-    merge feature/git-article
-```
+<<< @/snippets/gitgraphs/rebase-and-merge.mmd mermaid {scale: 0.7}
 </div>
 
+<!-- As you can see, this method removes the muddle of criss-crossing merges, while maintaining the whole branch structure and all the detail in every commit. -->
+
+---
+layout: center
+class: invert
+---
+
+1. #### **Rebase** ...and resolve any conflicts
+
+  ```cmd
+  git rebase main feature/git-article
+  ```
+  <br />
+
+2. #### **Merge** in the feature/git-article branch
+
+  ```cmd
+  git switch main
+  git merge feature/git-article
+  ```
+  <br />
+  
+
+3. #### **Delete** the unnecessary branch
+
+```cmd
+git branch -d feature/git-article
+```
+
+<!-- You can also enact this process without a Pull Request utilising the individual tools `rebase` your feature onto `main` and then `merge` your feature into `main` in any git client of your choosing, here's the command line commands for this. -->
+
+---
+
+# An awesome archive of software
+
+<<< @/snippets/gitgraphs/rebase-and-merge.mmd mermaid {scale: 0.7}
+
+<!-- And that's it. That's our stunning archive of software. We're source controlled with small incremental commits, each having a meaningful and detailed commit message sat comfortably in feature branches with no distracting noise and complicated merges. It reads easily from bottom to top, with no detail hidden or mistakes masked. -->
+
+---
+layout: image-left
+class: invert
+image: /media/brendan-stephens-Bl2tjfoBNv4-unsplash.jpg
+---
+
+# <solar-shield-warning-bold-duotone /><br />A note on **Rewriting history**
+
+<small>
+Photo by <a href="https://unsplash.com/@brendan_stephens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Brendan Stephens</a> on <a href="https://unsplash.com/photos/black-and-white-labeled-book-Bl2tjfoBNv4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+</small>
+
+<!-- Both tips 4 and 5 do something controversial in the git world: rewriting history. Not "rewriting history" as in the act of whitewashing a historical atrocity, but simply changing what's been pushed to the git repository (AKA history) after its happened (rewriting). Squashing, amending, rebasing and patching are all examples of git history being rewritten. And I've just been actively advocating for 3 of these! -->
+
+---
+layout: two-cols
+---
+
+### True history
+
+<div class="view-transition-graph">
+<<< @/snippets/gitgraphs/only-merge.mmd mermaid {scale: 0.7}
+</div>
+
+::right::
+
+### "Feature history"
+
+<<< @/snippets/gitgraphs/rebase-and-merge.mmd mermaid {scale: 0.7}
+
+<!-- Maintaining your "true history" certainly has its merits: it can be useful for learning and code reviews. There's also the risk you might mess up your history if you never tamper with it! However, the way I see it is that this shouldn't at the cost of the readability of your repo. I prefer to maintain what I like to call my "*feature* history" where the order of our feature development is true, even if we're tweaking the timelines a little of when each feature was developed relative to each other. I don't advocate for complete rewriting, just a quick tidy up. -->
+---
+layout: image-left
+image: media/shocked-rich-cartoon.png
+---
+
+# <solar-shield-warning-bold-duotone /><br />Wait did you say **"risk"?!**
+
+<small>
+AI generated. Based on <a href="https://umbracocommunity.social/deck/@jacksorjacksor/112332950206455455">"Shocked man" by Richard Jackson</a>
+</small>
+
+ <!-- just make sure you've _pushed_ your repository before you start messing with history. Then double check before your force push. -->
+
+---
+layout: intro
+---
+
+# <solar-square-bottom-up-bold-duotone /> **Push** before you **rewrite.**
+# <solar-test-tube-minimalistic-bold-duotone /> **Check** before you **force push.**
+
+<!-- As for that "risk" I mention when rewriting history, [CHANGE SLIDE] just make sure you've _pushed_ your repository before you start messing with history. Then double check before your force push. -->
+
+---
+layout: icons-header
+cols: 2
 ---
 
 # Thank you
 
-## Questions?
+::icons::
 
-🐘 [@joe@umbraco&#8239;community.social](https://umbracocommunity.social/joe)
+- <logos-mastodon-icon /> [@joe@umbraco&#8239;community.social](https://umbracocommunity.social/joe)
+- <logos-bluesky />  [@joe.gl](https://bsky.app/profile/joe.gl)
+- <solar-global-bold-duotone /> https://joe.gl/ombek
+- <solar-link-bold-duotone /> https://joe.gl/ombek/links/git-about-best-practices/
 
-🦋 [@joe.gl](https://bsky.app/profile/joe.gl)
+::footer::
 
-
-## Further Reading
-
+Git graphs generated with Mermaid, more about Mermaid: https://24days.in/umbraco-cms/2024/process-maps/
 
 <!-- Thank you! -->
