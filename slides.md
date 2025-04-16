@@ -15,7 +15,10 @@ drawings:
 transition: view-transition
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-# Icons: https://icon-sets.iconify.design/solar/?icon-filter=archive&suffixes=Bold+Duotone
+# Icons:
+#   - https://icones.js.org/collection/lucide-lab
+#   - https://icones.js.org/collection/lucide
+#   - https://icones.js.org/collection/logos
 
 layout: center
 class: text-center
@@ -104,7 +107,7 @@ tagline: Senior Developer at Bump Digital
 
 - <logos-mastodon-icon /> [@joe@umbraco&#8239;community.social](https://umbracocommunity.social/joe)
 - <logos-bluesky />  [@joe.gl](https://bsky.app/profile/joe.gl)
-- <solar-global-bold-duotone /> https://joe.gl/ombek
+- <lucide-globe /> https://joe.gl/ombek
 
 
 ---
@@ -119,9 +122,9 @@ Let's start really simple: what is git? Git is the most popular Source Control M
 layout: icons
 ---
 
-- <solar-box-bold-duotone /> Backup
-- <solar-archive-up-bold-duotone /> Versioning
-- <solar-hand-stars-bold-duotone /> Sharability
+- <lucide-database-backup /> Backup
+- <lucide-package-open /> Versioning
+- <lucide-hand-platter /> Sharability
 
 <!--
 It can ensure your code is backed up, versioned and accessible to other developers.
@@ -130,17 +133,24 @@ It can ensure your code is backed up, versioned and accessible to other develope
 layout: icons
 ---
 
-- <solar-rocket-2-bold-duotone /> Release management
-- <solar-star-fall-bold-duotone />Feature development
-- <solar-recive-twice-square-bold-duotone /> Concurrent working
+- <lucide-rocket /> Release management
+- <lucide-sparkles />Feature development
+- <lucide-arrows-up-from-line /> Concurrent working
 
 <!--
 But used properly it can be so much more helping ease complex processes such as release management, feature development and multiple people working concurrently. But I can be a bit of a git about it: I'm really fussy about how people use git - and that's a good thing. I've worked with a fair few organisations and development teams over the years, and poor git utilisation is a more common issue than you might think. 
 -->
 
 ---
+layout: icons
+cols: 3
+---
 
-TODO: dump vs library photos
+<!-- TODO: dump vs library photos -->
+
+- <lucide-lab-apple-core />
+- <lucide-slash />
+- <lucide-library-big />
 
 <!--
 But I can be a bit of a git about it: I'm really fussy about how people use git - and that's a good thing. I've worked with a fair few organisations and development teams over the years, and poor git utilisation is a more common issue than you might think. People use git as a dumping ground for code rather than an well-managed archive of software.
@@ -292,9 +302,9 @@ cols: 3
 
 ::icons::
 
-- <solar-adhesive-plaster-bold-duotone /> Fixes...
-- <solar-undo-left-round-square-bold-duotone /> Reverts...
-- <solar-plug-circle-bold-duotone /> Integrates...
+- <lucide-heart-pulse /> Fixes...
+- <lucide-undo-dot /> Reverts...
+- <lucide-lab-socket-uk /> Integrates...
 
 <!-- Some people will tell you that good commit messages should be written as if answering the question "what does this commit do?" and that's good advice! Starting your commit message with a verb like "Fixes ...", "Reverts ..." or "Integrates ..." is a good practice too. -->
 
@@ -307,9 +317,9 @@ cols: 3
 
 ::icons::
 <ul>
-  <li v-mark="{ at: 1, type: 'crossed-off', color: 'var(--color-mandarin)', strokeWidth: 10 }"><solar-adhesive-plaster-bold-duotone /> Fixes bugs</li>
-  <li v-mark="{ at: 1, type: 'crossed-off', color: 'var(--color-mandarin)', strokeWidth: 10 }"><solar-undo-left-round-square-bold-duotone /> Reverts broken changes</li>
-  <li v-mark="{ at: 1, type: 'crossed-off', color: 'var(--color-mandarin)', strokeWidth: 10 }"><solar-plug-circle-bold-duotone /> Integrates API</li>
+  <li v-mark="{ at: 1, type: 'crossed-off', color: 'var(--color-mandarin)', strokeWidth: 10 }"><lucide-heart-pulse /> Fixes bugs</li>
+  <li v-mark="{ at: 1, type: 'crossed-off', color: 'var(--color-mandarin)', strokeWidth: 10 }"><lucide-undo-dot /> Reverts broken changes</li>
+  <li v-mark="{ at: 1, type: 'crossed-off', color: 'var(--color-mandarin)', strokeWidth: 10 }"><lucide-lab-socket-uk /> Integrates API</li>
 </ul>
 
 
@@ -325,11 +335,11 @@ cols: 3
 
 ::icons::
 
-- <solar-adhesive-plaster-bold-duotone /> **Fixes date formatting issue in Chrome**
+- <lucide-heart-pulse /> **Fixes date formatting issue in Chrome**
   Chrome always assumes the MM/DD format no matter what locale the browser is set to*
-- <solar-undo-left-round-square-bold-duotone /> **Reverts new “Paytastic Checkout” checkout flow**
+- <lucide-undo-dot /> **Reverts new “Paytastic Checkout” checkout flow**
   Customer has changed their mind and wants to revert to using LegacyCart
-- <solar-plug-circle-bold-duotone /> **Integrates SMS API**
+- <lucide-lab-socket-uk /> **Integrates SMS API**
   Sending an SMS to customers when their order ships using the “Simple SMS Sender” API
 
 <small>* it doesn't, this is a made up example</small>
@@ -377,10 +387,10 @@ layout: intro
 layout: icons
 ---
 
-- # <solar-ssd-square-bold-duotone />
-- # <solar-jar-of-pills-2-bold-duotone />
-- # <solar-bone-crack-bold-duotone />
-- # <solar-bus-bold-duotone />
+- # <lucide-hard-drive />
+- # <lucide-pill />
+- # <lucide-lab-waves-shark-fin />
+- # <lucide-bus-front />
 
 <!-- There's no point *only* committing when something is feature complete: what happens if your hard drive packs up overnight? Or you're off sick tomorrow and somebody else is left to pick up your work? It's far more useful to have partially complete work committed than not. Although it's generally good practice to ensure each commit is in a buildable state - it's ok if your work-in-progress (WIP) commits don't build. -->
 
@@ -633,7 +643,7 @@ layout: image-left
 image: /media/slip.jpg
 ---
 
-# <solar-shield-warning-bold-duotone /><br />Don't squash your mistakes
+# <lucide-shield-alert /><br />Don't squash your mistakes
 They tell a story
 
 <small>
@@ -660,10 +670,10 @@ cols: 4
 
 ::icons::
 
-- <solar-branching-paths-up-bold-duotone /> Git Flow
+- <lucide-git-branch /> Git Flow
 - <logos-github-icon /> GitHub Flow
 - <logos-gitlab /> GitLab Flow
-- <solar-branching-paths-up-bold-duotone /> Common Flow
+- <lucide-git-branch /> Common Flow
 
 ::footer::
 https://go.joe.gl/which-flow
@@ -685,19 +695,19 @@ cols: 5
 
 ::icons::
 
-- <solar-branching-paths-up-bold-duotone />
+- <lucide-git-branch />
   **Create a branch**
   with a short descriptive name
-- <solar-menu-dots-square-bold-duotone />
+- <lucide-git-commit-vertical />
   **Add commits**
   Each commit as an isolated, complete change
-- <solar-question-square-bold-duotone />
+- <lucide-git-pull-request-arrow />
   **Open a Pull Request**
   linked to an issue
-- <solar-chat-square-code-bold-duotone />
+- <lucide-message-circle-code />
   **Discuss and review**
   with the maintainer or a colleague
-- <solar-minimize-square-minimalistic-bold-duotone />
+- <lucide-git-merge />
   **Merge**
   and delete your branch
 
@@ -1019,7 +1029,7 @@ class: invert
 image: /media/brendan-stephens-Bl2tjfoBNv4-unsplash.jpg
 ---
 
-# <solar-shield-warning-bold-duotone /><br />A note on **Rewriting history**
+# <lucide-shield-alert /><br />A note on **Rewriting history**
 
 <small>
 Photo by <a href="https://unsplash.com/@brendan_stephens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Brendan Stephens</a> on <a href="https://unsplash.com/photos/black-and-white-labeled-book-Bl2tjfoBNv4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
@@ -1049,7 +1059,7 @@ layout: image-left
 image: /media/shocked-rich-cartoon.png
 ---
 
-# <solar-shield-warning-bold-duotone /><br />Wait did you say **"risk"?!**
+# <lucide-shield-alert /><br />Wait did you say **"risk"?!**
 
 <small>
 AI generated. Based on <a href="https://umbracocommunity.social/deck/@jacksorjacksor/112332950206455455">"Shocked man" by Richard Jackson</a>
@@ -1061,8 +1071,8 @@ AI generated. Based on <a href="https://umbracocommunity.social/deck/@jacksorjac
 layout: intro
 ---
 
-# <solar-square-bottom-up-bold-duotone /> **Push** before you **rewrite.**
-# <solar-test-tube-minimalistic-bold-duotone /> **Check** before you **force push.**
+# <lucide-cloud-upload /> **Push** before you **rewrite.**
+# <lucide-test-tube-diagonal /> **Check** before you **force push.**
 
 <!-- As for that "risk" I mention when rewriting history, [CHANGE SLIDE] just make sure you've _pushed_ your repository before you start messing with history. Then double check before your force push. -->
 
@@ -1077,8 +1087,8 @@ cols: 2
 
 - <logos-mastodon-icon /> [@joe@umbraco&#8239;community.social](https://umbracocommunity.social/joe)
 - <logos-bluesky />  [@joe.gl](https://bsky.app/profile/joe.gl)
-- <solar-global-bold-duotone /> https://joe.gl/ombek
-- <solar-link-bold-duotone /> https://joe.gl/ombek/links/git-about-best-practices/
+- <lucide-globe /> https://joe.gl/ombek
+- <lucide-link /> https://joe.gl/ombek/links/git-about-best-practices/
 
 ::footer::
 
