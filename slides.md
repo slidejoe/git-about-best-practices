@@ -20,8 +20,7 @@ mdc: true
 #   - https://icones.js.org/collection/lucide
 #   - https://icones.js.org/collection/logos
 
-layout: center
-class: text-center
+layout: intro
 ---
 
 <style>
@@ -97,7 +96,26 @@ class: text-center
   }
 </style>
 
-# Why am I being such a *git* about best practices?
+<style scoped>
+h1 {
+  width: 90%;
+  display: grid;
+  grid-auto-rows: min-content; 
+  grid-template-columns: auto auto auto;
+  gap: 0 1ex;
+  grid-auto-flow: row;
+  align-items: end;
+
+  strong:nth-child(1) {
+    grid-area: auto / 2 / auto / 4;
+  }
+  strong:nth-child(2) {
+    grid-area: auto / 2 / auto / auto;
+  }
+}
+</style>
+
+# Why am I being such a **git** about **best practices**?
 
 ---
 layout: bio
