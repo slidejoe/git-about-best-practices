@@ -405,15 +405,84 @@ background-size: contain
 
 GitKraken lets you hook up your issue tracker to your git repos so you can automatically stick an issue number into the branch name (and therefore in the merge commit too!)
 
-  <!-- TODO:Image -->
-
   <!-- If you have a ticketing system or to-do list, it sometimes helps to include the title of the item in your commit and an ID or link to the Initial issue can prove very useful. GitKraken (and many other GUI git clients) let you hook up your issue tracker to your git repos so you can automatically stick an issue number into the branch name (and it'll therefore be in the merge commit too!) -->
 
 ---
 layout: intro
 ---
 
-# [2]{.number} Push **Little and often**
+# [2]{.number} Get with the **flow**
+
+<!-- Tip number 4 is to use a branching strategy. -->
+
+---
+layout: icons-header
+cols: 4
+---
+
+
+## Flows
+
+::icons::
+
+- <lucide-git-branch /> Git Flow
+- <logos-github-icon /> GitHub Flow
+- <logos-gitlab /> GitLab Flow
+- <lucide-git-branch /> Common Flow
+
+::footer::
+https://go.joe.gl/which-flow
+
+<!-- There are many branching strategies out there and I don't really mind which one you use. My personal favourites are GitHub flow and Common Flow (or a combination of the two) but there are many more. GitHub Flow and GitLab Flow aren't specific to their retrospective hosts either. Any flow can be used anywhere. Although a host may make it a bit easier to follow their flow on their host. -->
+
+---
+layout: icons-header
+cols: 5
+---
+
+<style scoped>
+  /* ul {
+    font-size: 0.8em;
+  } */
+</style>
+
+## GitFlow
+
+::icons::
+
+- <lucide-git-branch />
+  **Create a branch**
+  with a short descriptive name
+- <lucide-git-commit-vertical />
+  **Add commits**
+  Each commit as an isolated, complete change
+- <lucide-git-pull-request-arrow />
+  **Open a Pull Request**
+  linked to an issue
+- <lucide-message-circle-code />
+  **Discuss and review**
+  with the maintainer or a colleague
+- <lucide-git-merge />
+  **Merge**
+  and delete your branch
+
+::footer::
+
+https://go.joe.gl/ghflow
+
+<!-- TODO: longer version should have CommonFlow too -->
+
+<!--
+GitHub flow, put very simply, involves creating a branch for your feature (with a short descriptive name), Adding your commits to that branch, each commit containing "an isolated, complete change" and then opening a Pull Request. You discuss and review your code changes with your colleagues. Once everyone is happy, your Pull Request is merged into the main branch. Main is always in a deployable state. The GitHub flow tutorial goes into a little more detail.
+
+It's worth noting that if none of these git flows make sense to you, you can take inspiration from them. I don't know of many companies who strictly follow any one particular strategy. So pick one as a baseline and adapt it for your organisation. GitHub Flow and GitLab Flow don't have to be restricted to GitHub or GitLab - you can use any flow anywhere
+-->
+
+---
+layout: intro
+---
+
+# [3]{.number} Push **Little and often**
 
 <!-- Tip number 2 is to commit and push little and often I've seen a lot of different tactics when it comes to how often people commit, but the most persuasive argument I've heard is for "little and often". Don't forget git acts as a backup of your work and progress. -->
 
@@ -472,7 +541,7 @@ gitGraph BT:
 layout: intro
 ---
 
-# [3]{.number} **Squash** rackets
+# [4]{.number} **Squash** rackets
 
 <!-- But don't all these "little and often" commits start to make a _racket_ after a while? (See what I did there?) That's where squash and amend come in.  -->
 
@@ -658,76 +727,6 @@ Image "Slip?" by Perry Hall on Flickr <a href="https://www.flickr.com/photos/fre
 
 <!-- One thing to note, though: don't squash your mistakes! Your mistakes and reworkings tell a story. It could provide valuable explanation to a future developer and documents your mistakes and learnings. Use amend and squash to tidy up, not to sweep under the rug! -->
 
----
-layout: intro
----
-
-# [4]{.number} Get with the **flow**
-
-<!-- Tip number 4 is to use a branching strategy. -->
-
----
-layout: icons-header
-cols: 4
----
-
-
-## Flows
-
-::icons::
-
-- <lucide-git-branch /> Git Flow
-- <logos-github-icon /> GitHub Flow
-- <logos-gitlab /> GitLab Flow
-- <lucide-git-branch /> Common Flow
-
-::footer::
-https://go.joe.gl/which-flow
-
-<!-- There are many branching strategies out there and I don't really mind which one you use. My personal favourites are GitHub flow and Common Flow (or a combination of the two) but there are many more. GitHub Flow and GitLab Flow aren't specific to their retrospective hosts either. Any flow can be used anywhere. Although a host may make it a bit easier to follow their flow on their host. -->
-
----
-layout: icons-header
-cols: 5
----
-
-<style scoped>
-  /* ul {
-    font-size: 0.8em;
-  } */
-</style>
-
-## GitFlow
-
-::icons::
-
-- <lucide-git-branch />
-  **Create a branch**
-  with a short descriptive name
-- <lucide-git-commit-vertical />
-  **Add commits**
-  Each commit as an isolated, complete change
-- <lucide-git-pull-request-arrow />
-  **Open a Pull Request**
-  linked to an issue
-- <lucide-message-circle-code />
-  **Discuss and review**
-  with the maintainer or a colleague
-- <lucide-git-merge />
-  **Merge**
-  and delete your branch
-
-::footer::
-
-https://go.joe.gl/ghflow
-
-<!-- TODO: longer version should have CommonFlow too -->
-
-<!--
-GitHub flow, put very simply, involves creating a branch for your feature (with a short descriptive name), Adding your commits to that branch, each commit containing "an isolated, complete change" and then opening a Pull Request. You discuss and review your code changes with your colleagues. Once everyone is happy, your Pull Request is merged into the main branch. Main is always in a deployable state. The GitHub flow tutorial goes into a little more detail.
-
-It's worth noting that if none of these git flows make sense to you, you can take inspiration from them. I don't know of many companies who strictly follow any one particular strategy. So pick one as a baseline and adapt it for your organisation. GitHub Flow and GitLab Flow don't have to be restricted to GitHub or GitLab - you can use any flow anywhere
--->
 
 ---
 layout: intro
