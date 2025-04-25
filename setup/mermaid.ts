@@ -17,7 +17,9 @@ export default defineMermaidSetup(() => {
       'git4': '#6761A8',
       'git5': '#70AE6E',
       'git6': '#009DDC',
-      'git7': '#2C6B72'
+      'git7': '#2C6B72',
+      'commitLabelBackground': 'white',
+      'commitLabelFontSize': '20px'
     },
     //themeCSS: '.commit-labels { fill:red } .commit-label-bkg { display: none } .commit-label { x: 100% }'
     gitGraph: {

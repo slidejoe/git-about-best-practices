@@ -57,6 +57,7 @@ layout: intro
     .slidev-layout {
       --color-background: var(--color-space-cadet);
       --color-heading: var(--color-mandarin);
+      --color-text: white;
     }
   }
   :nth-child(7n + 3 of .slidev-page:has(.slidev-layout.intro)) {
@@ -160,15 +161,20 @@ But used properly it can be so much more helping ease complex processes such as 
 -->
 
 ---
-layout: icons
-cols: 3
+layout: image
+image: /media/evan-demicoli-HGCqL-tRcac-unsplash.jpg
 ---
+<small>Photo by <a href="https://unsplash.com/@evandemicoli?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Evan Demicoli</a> on <a href="https://unsplash.com/photos/brown-and-green-houses-under-blue-sky-during-daytime-HGCqL-tRcac?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></small>
 
-<!-- TODO: dump vs library photos -->
+<!--
+But I can be a bit of a git about it: I'm really fussy about how people use git - and that's a good thing. I've worked with a fair few organisations and development teams over the years, and poor git utilisation is a more common issue than you might think. People use git as a dumping ground for code [Click] rather than an well-managed archive of software.
+-->
 
-- <lucide-lab-apple-core />
-- <lucide-slash />
-- <lucide-library-big />
+---
+layout: image
+image: /media/ula-kuzma-9i4DHlC80AQ-unsplash.jpg
+---
+<small style="position:absolute; left:39%; top: 0;">Photo by <a href="https://unsplash.com/@ula_kuzma?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ula Kuźma</a> on <a href="https://unsplash.com/photos/brown-pathway-between-white-organizers-9i4DHlC80AQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></small>
 
 <!--
 But I can be a bit of a git about it: I'm really fussy about how people use git - and that's a good thing. I've worked with a fair few organisations and development teams over the years, and poor git utilisation is a more common issue than you might think. People use git as a dumping ground for code rather than an well-managed archive of software.
@@ -213,7 +219,7 @@ layout: icons
   <li v-mark="{ at: 1, type: 'circle', color: 'var(--color-bud-green)', strokeWidth: 10, padding: 20 }"><logos-git-icon /> Git</li>
 </ul>
 
-<!-- Mercurial (hg), Team Foundation Version Control (TFVC) and Subversion (SVN) are all examples of version control software but Git has really taken over in the software world and is the industry standard - I'd recommend it for that on its own: there's no point teaching your team a version control system which is (or may become) redundant. -->
+<!-- Mercurial (hg), Team Foundation Version Control (TFVC) and Subversion (SVN) are all examples of version control software but [Click] Git has really taken over in the software world and is the industry standard - I'd recommend it for that on its own: there's no point teaching your team a version control system which is (or may become) redundant. -->
 
 ---
 layout: intro
@@ -224,16 +230,21 @@ layout: intro
 <!-- Tip number 1: Commit Messaging is everything -->
 
 ---
+layout: center
+---
 
 ![](/media/xkcd.png)
+
 https://xkcd.com/1296
 
 <!-- Here's a comic from the brilliant XKCD. "As a project drags on, my git commit messages get less and less informative", going from something as descriptive as "created main loop and timing control" into the anarchy of "MY HANDS ARE TYPING WORDS" "HAAAAAANDS". I'd like to say that was just a joke in a comic strip... -->
 
 
 ---
+layout: center
+---
 
-![](/media/useful-commits.jpg)
+![](/media/useful-commits.jpg){style='max-height:470px'}
 
 https://x.com/dadolfi/status/1405424992121131010
 
@@ -341,7 +352,7 @@ cols: 3
 </ul>
 
 
-<!-- But these alone are not enough. "Fixes bugs" or "Reverts broken changes" are still useless. -->
+<!-- But these alone are not enough. "Fixes bugs" or "Reverts broken changes" [Click] are still useless. -->
 
 ---
 layout: icons-header
@@ -382,12 +393,17 @@ Description
 <!-- Choice of git client isn't an excuse either - you can even do the on the command line by passing in two "message" parameters -->
 
 ---
+layout: image-right
+image: /media/link-to-issues.jpg
+background-size: contain
+---
 
 ## Link commits to issues
 
 - Include the title of the issue/item
 - Include an ID or link to the issue
-  GitKraken lets you hook up your issue tracker to your git repos so you can automatically stick an issue number into the branch name (and therefore in the merge commit too!)
+
+GitKraken lets you hook up your issue tracker to your git repos so you can automatically stick an issue number into the branch name (and therefore in the merge commit too!)
 
   <!-- TODO:Image -->
 
@@ -461,57 +477,42 @@ layout: intro
 <!-- But don't all these "little and often" commits start to make a _racket_ after a while? (See what I did there?) That's where squash and amend come in.  -->
 
 ---
+layout: two-cols-header
+---
 
 ## Amend commits
 
-<v-clicks>
+::left::
+
+<<< @/snippets/gitgraphs/wip-commit.mmd mermaid {scale: 0.75}
+
+::right::
+
+![](/media/gk-amend.png)
+
+<!-- As I mentioned, I'm a big fan of a WIP (Work -In-Progress) commit at the end of the day. But, come tomorrow morning and I've finished that small segment of work off, I don't want two commits "WIP - Restyle footer" *and* "Restyle footer". So I can amend my "WIP" commit to include all changes and rename it to "Restyle footer". -->
+
+---
+layout: two-cols-header
+---
+
+## Amend commits
+
+::left::
+
+<<< @/snippets/gitgraphs/wip-commit.mmd mermaid {scale: 0.75}
+
+::right::
 
 ```mermaid {scale: 0.75}
-%%{
-  init: {
-    'logLevel': 'debug',
-    'theme': 'base',
-    'themeVariables': {
-      'commitLabelBackground': 'white',
-      'commitLabelFontSize': '20px'
-    },
-    'gitGraph': {
-      'rotateCommitLabel': true
-    }
- }
-}%%
-gitGraph BT:
-    commit id: "Initial commit"
-    branch develop
-    commit id: "WIP: Restyle footer"
-    commit id: "Restyle footer complete"
-```
-
-<!-- TODO: Amend screenshot -->
-
-```mermaid {scale: 0.75}
-%%{
-  init: {
-    'logLevel': 'debug',
-    'theme': 'base',
-    'themeVariables': {
-      'commitLabelBackground': 'white',
-      'commitLabelFontSize': '20px'
-    },
-    'gitGraph': {
-      'rotateCommitLabel': true
-    }
- }
-}%%
 gitGraph BT:
     commit id: "Initial commit"
     branch develop
     commit id: "Restyle footer"
 ```
 
-</v-clicks>
 
-<!-- As I mentioned, I'm a big fan of a WIP (Work -In-Progress) commit at the end of the day. But, come tomorrow morning and I've finished that small segment of work off, I don't want two commits "WIP - Restyle footer" *and* "Restyle footer". So I can amend my "WIP" commit to include all changes and rename it to "Restyle footer". -->
+
 
 ---
 layout: center
@@ -527,50 +528,34 @@ https://atlassian.com/git/tutorials/rewriting-history
 <!-- Or in the command line `git commit --amend -m "Restyle footer"`. Atlassian has a great tutorial about [rewriting git history from the command line](https://www.atlassian.com/git/tutorials/rewriting-history). -->
 
 ---
+layout: two-cols-header
+---
 
 ## Squash commits 
 
-<v-clicks>
+::left::
+
+<<< @/snippets/gitgraphs/pre-squash.mmd mermaid {scale: 0.75}
+
+::right::
+
+![](/media/gksquash.png){v-click}
+
+<!-- If you want to combine multiple commits, or you've already committed your second round of changes, you can look into "squashing" the commits. [Click] In GitKraken, this is done by selecting the multiple commits you want to combine, right clicking and selecting "Squash". There are some scenarios when squashing won't be available - in this case you might be best just leaving the history as-is! -->
+
+---
+layout: two-cols-header
+---
+
+## Squash commits 
+
+::left::
+
+<<< @/snippets/gitgraphs/pre-squash.mmd mermaid {scale: 0.75}
+
+::right::
 
 ```mermaid {scale: 0.75}
-%%{
-  init: {
-    'logLevel': 'debug',
-    'theme': 'base',
-    'themeVariables': {
-      'commitLabelBackground': 'white',
-      'commitLabelFontSize': '20px'
-    },
-    'gitGraph': {
-      'rotateCommitLabel': true
-    }
- }
-}%%
-gitGraph BT:
-    commit id: "Initial commit"
-    branch develop
-    commit id: "WIP: Restyle footer"
-    commit id: "WIP: Restyle footer part 2: The Lost World"
-    commit id: "Restyle footer complete"
-    commit id: "Restyle header"
-```
-
-<!-- TODO: Squash screenshot -->
-
-```mermaid {scale: 0.75}
-%%{
-  init: {
-    'logLevel': 'debug',
-    'theme': 'base',
-    'themeVariables': {
-      'commitLabelBackground': 'white',
-      'commitLabelFontSize': '20px'
-    },
-    'gitGraph': {
-      'rotateCommitLabel': true
-    }
- }
-}%%
 gitGraph BT:
     commit id: "Initial commit"
     branch develop
@@ -578,15 +563,18 @@ gitGraph BT:
     commit id: "Restyle header"
 ```
 
-</v-clicks>
 
-<!-- If you want to combine multiple commits, or you've already committed your second round of changes, you can look into "squashing" the commits. In GitKraken, this is done by selecting the multiple commits you want to combine, right clicking and selecting "Squash". There are some scenarios when squashing won't be available - in this case you might be best just leaving the history as-is! So what does squash do, exactly? Squash is a method of "rewriting history" in git. Essentially, it pretends your initial commits never happened, and creates a new commit containing all the changes from your previous commits. -->
+<!-- So what does squash do, exactly? Squash is a method of "rewriting history" in git. Essentially, it pretends your initial commits never happened, and creates a new commit containing all the changes from your previous commits. -->
 
+---
+layout: center
 ---
 
 ## Force Push
 
-TODO: Force push screenshots
+
+![](/media/force-push.png)
+
 
 ```cmd
 git push --force
@@ -758,8 +746,10 @@ Our final tip to keep these git repos tidy is to rebase AND merge.
 <<< @/snippets/gitgraphs/only-merge.mmd mermaid {scale: 0.8}
 
 ---
+layout: center
+---
 
-TODO: Rebase and merge screenshot
+![](/media/gh-rebase-and-merge.png)
 
 <!-- GitHub provides these 3 options on completion of a Pull Request: - Create a merge commit (which creates the mess you see above) - Squash and merge - Rebase and merge -->
 
